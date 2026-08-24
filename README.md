@@ -1,7 +1,5 @@
 # TaskFlow AI 🤖
 
-## Description
-
 TaskFlow AI is a full-stack project and task management platform that helps users
 create projects, manage tasks, track progress, and improve productivity with a
 small AI-powered task assistant.
@@ -215,7 +213,7 @@ skills by combining:
 
 ## Author
 
-**Sayee**
+**Karthick kannan**
 
 ## Future Improvements
 
@@ -231,6 +229,3 @@ skills by combining:
 ## License
 
 This project is licensed under the **MIT License**.
-
-```
-```
