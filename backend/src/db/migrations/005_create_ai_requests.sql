@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS ai_requests (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
+    task_id BIGINT REFERENCES tasks(id) ON DELETE CASCADE,
+    request_type VARCHAR(50) NOT NULL,
+    response TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
