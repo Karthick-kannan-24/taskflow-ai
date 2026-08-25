@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
+const projectRoutes = require("./routes/project.routes");
 
 const env = require("./config/env");
 
@@ -50,6 +51,8 @@ app.get("/api/v1/health", (req, res) => {
 app.use("/api/v1/auth", authRoutes);
 
 app.use("/api/v1/users", userRoutes);
+
+app.use("/api/v1/projects", projectRoutes);
 
 app.use(notFoundMiddleware);
 
