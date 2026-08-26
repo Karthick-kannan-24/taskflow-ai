@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const projectRoutes = require("./routes/project.routes");
+const taskRoutes = require("./routes/task.routes");
 
 const env = require("./config/env");
 
@@ -53,6 +54,8 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);
 
 app.use("/api/v1/projects", projectRoutes);
+
+app.use("/api/v1/tasks", taskRoutes);
 
 app.use(notFoundMiddleware);
 
