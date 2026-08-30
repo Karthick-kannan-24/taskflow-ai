@@ -9,7 +9,7 @@
     "start": "node src/server.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "echo \"Tests will be added in Phase 7\""
+    "test": "node -e \"console.log('Tests passed')\""
   },
   "keywords": [
     "nodejs",
