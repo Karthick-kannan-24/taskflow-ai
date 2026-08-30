@@ -1,10 +1,7 @@
 services:
-
   postgres:
     image: postgres:16-alpine
-
     container_name: taskflow-postgres
-
     restart: unless-stopped
 
     environment:
@@ -19,23 +16,25 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "pg_isready -U postgres -d taskflow"
-        ]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d taskflow"]
       interval: 5s
       timeout: 5s
       retries: 5
 
-
   backend:
-    build:
-      context: ./backend
-
+    build: ./backend
     container_name: taskflow-backend
-
     restart: unless-stopped
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    healthcheck:
+        test: ["CMD", "wget", "--spider", "-q", "http://localhost:5000/api/v1/health"]
+        interval: 30s
+        timeout: 5s
+        retries: 3
 
     environment:
       NODE_ENV: production
@@ -44,7 +43,6 @@ services:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/taskflow
 
       JWT_SECRET: change_this_to_a_long_random_secret_key_123456
-
       JWT_EXPIRES_IN: 7d
 
       CORS_ORIGIN: http://localhost:5173
@@ -52,10 +50,16 @@ services:
     ports:
       - "5000:5000"
 
-    depends_on:
-      postgres:
-        condition: service_healthy
+  frontend:
+    build: ./frontend
+    container_name: taskflow-frontend
+    restart: unless-stopped
 
+    depends_on:
+      - backend
+
+    ports:
+      - "5173:80"
 
 volumes:
   postgres_data:

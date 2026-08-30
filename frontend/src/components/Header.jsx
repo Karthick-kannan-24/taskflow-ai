@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import profileAvatar from "../assets/profile-avatar.png";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
@@ -49,7 +50,7 @@ const Header = () => {
                 >
                     <img
                         className="taskflow-user-avatar"
-                        src="/src/assets/profile-avatar.png"
+                        src={profileAvatar}
                         alt="User profile"
                     />
 
