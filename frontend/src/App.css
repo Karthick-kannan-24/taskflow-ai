@@ -3053,7 +3053,7 @@
 
 .taskflow-project-toolbar {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 12px;
 }
 
@@ -3412,6 +3412,180 @@
   margin: 4px 0 0;
   color: #ff8a8a;
   font-size: 11px;
+}
+
+.taskflow-task-project-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.taskflow-task-project-picker label {
+  color: #7d8ea7;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.taskflow-task-project-picker select,
+.taskflow-project-form select {
+  width: 100%;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0 12px;
+  background: rgba(13, 19, 28, 0.96);
+  color: #edf3ff;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #9ab0d1 50%), linear-gradient(135deg, #9ab0d1 50%, transparent 50%);
+  background-position: calc(100% - 16px) calc(50% - 2px), calc(100% - 11px) calc(50% - 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.taskflow-task-project-picker select option,
+.taskflow-project-form select option {
+  background: #111b2b;
+  color: #edf3ff;
+}
+
+.taskflow-task-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 15px;
+}
+
+.taskflow-task-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.018);
+  transition: 0.2s ease;
+}
+
+.taskflow-task-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(100, 140, 255, 0.14);
+  background: rgba(255, 255, 255, 0.028);
+}
+
+.taskflow-task-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.taskflow-task-card h3 {
+  margin: 0 0 10px;
+  color: #edf3ff;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.taskflow-task-card p {
+  min-height: 60px;
+  margin: 0 0 14px;
+  color: #6c7b94;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.taskflow-task-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.taskflow-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.taskflow-status-badge.todo {
+  color: #acd0ff;
+  background: rgba(85, 140, 255, 0.12);
+}
+
+.taskflow-status-badge.in-progress {
+  color: #f1c77a;
+  background: rgba(255, 176, 59, 0.12);
+}
+
+.taskflow-status-badge.done {
+  color: #88e0ae;
+  background: rgba(60, 198, 120, 0.12);
+}
+
+.taskflow-task-date {
+  color: #8190ad;
+  font-size: 10px;
+}
+
+.taskflow-task-date i {
+  margin-right: 5px;
+}
+
+.taskflow-task-delete {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+  color: #8ea2c0;
+  cursor: pointer;
+}
+
+.taskflow-task-status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.taskflow-status-option {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: transparent;
+  color: #9aa9c1;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.taskflow-status-option.active {
+  color: #edf3ff;
+  border-color: rgba(110, 142, 255, 0.28);
+  background: rgba(83, 114, 255, 0.14);
+}
+
+.taskflow-task-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.taskflow-project-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 
